@@ -1,6 +1,16 @@
-# Crypto Tracker
+# CryptoCap Tracker
+
+## Front Stack
+
+- react
+- react-router
+- styled-component
+- react-query
+- apexcharts
 
 ## Screens
 
-- [] All Coins
-- [] CoinDetail
+- [x] Home
+- [x] Detail
+  - [ ] Chart
+  - [ ] Price
