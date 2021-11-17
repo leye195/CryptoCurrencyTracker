@@ -1,6 +1,6 @@
 # CryptoCap Tracker
 
-## Front Stack
+## Stack
 
 - react
 - react-router
