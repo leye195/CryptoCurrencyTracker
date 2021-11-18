@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Common from 'components/common';
 import { CoinType } from 'types/coin';
+import Loading from 'components/common/Loading';
 
 type Props = {
-  coins: CoinType[];
+  coins?: CoinType[];
+  isLoading: boolean;
+  isFetched: boolean;
 };
 
 const CoinsList = styled.ul`
@@ -36,25 +39,31 @@ const Coin = styled.li`
   }
 `;
 
-export default function HomePresentation({ coins }: Props) {
+export default function HomePresentation({
+  coins,
+  isLoading,
+  isFetched,
+}: Props) {
   return (
     <Common.Container>
       <Common.Header />
       <CoinsList>
-        {coins.map((coin) => (
-          <Coin key={coin.id}>
-            <Link
-              to={`/${coin.id}`}
-              state={{ name: coin.name, symbol: coin.symbol }}
-            >
-              <Common.Img
-                src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
-                alt={coin.symbol?.toLowerCase()}
-              />
-              {coin.name} &rarr;
-            </Link>
-          </Coin>
-        ))}
+        {isLoading && <Loading />}
+        {isFetched &&
+          coins?.slice(0, 100)?.map((coin) => (
+            <Coin key={coin.id}>
+              <Link
+                to={`/${coin.id}`}
+                state={{ name: coin.name, symbol: coin.symbol }}
+              >
+                <Common.Img
+                  src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                  alt={coin.symbol?.toLowerCase()}
+                />
+                {coin.name} &rarr;
+              </Link>
+            </Coin>
+          ))}
       </CoinsList>
     </Common.Container>
   );

@@ -12,6 +12,7 @@ import { numberFormat } from 'utils';
 type Props = {
   name: string;
   isLoading: boolean;
+  isFetched: boolean;
   coinInfo?: CoinInfoType;
   coinPrice?: CoinPriceType;
 };
@@ -84,15 +85,15 @@ const LinkWrapper = styled.div`
 export default function DetailPresentation({
   name = '',
   isLoading = true,
+  isFetched = false,
   coinInfo,
   coinPrice,
 }: Props) {
   return (
     <Common.Container>
       <Common.Header />
-      {isLoading ? (
-        <Loading />
-      ) : (
+      {isLoading && <Loading />}
+      {isFetched && (
         <Common.Col>
           <Common.Row full justifyContent="center">
             <CoinTitleWrapper>

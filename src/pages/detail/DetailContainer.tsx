@@ -1,6 +1,6 @@
-import { getCoin, getPrice } from 'apis';
-import { useEffect, useState, useCallback } from 'react';
 import { useParams, useLocation } from 'react-router';
+import { useQuery } from 'react-query';
+import { getCoin, getPrice } from 'apis';
 import { CoinInfoType, CoinPriceType } from 'types/coin';
 import DetailPresentation from './DetailPresentation';
 
@@ -11,29 +11,30 @@ type RouteParams = {
 export default function DetailContainer() {
   const { coinId }: RouteParams = useParams();
   const { state } = useLocation();
-  const [isLoading, setIsLoading] = useState(true);
-  const [coinInfo, setCoinInfo] = useState<CoinInfoType>();
-  const [coinPrice, setCoinPrice] = useState<CoinPriceType>();
 
-  const getCoinInfo = useCallback(async () => {
-    setIsLoading(true);
-    const res = await Promise.all([
-      getCoin(coinId as string),
-      getPrice(coinId as string),
-    ]);
-    setCoinInfo(res[0].data);
-    setCoinPrice(res[1].data);
-    setIsLoading(false);
-  }, [coinId]);
+  const {
+    data: coinInfo,
+    isLoading: isCoinInfoLoading,
+    isFetched: isCoinInfoFetched,
+  } = useQuery<CoinInfoType>(['coinInfo', coinId], async () => {
+    const res = await getCoin(coinId as string);
+    return res.data;
+  });
 
-  useEffect(() => {
-    coinId && getCoinInfo();
-  }, [coinId, getCoinInfo]);
+  const {
+    data: coinPrice,
+    isLoading: isCoinPriceLoading,
+    isFetched: isCoinPriceFetched,
+  } = useQuery<CoinPriceType>(['coinPrice', coinId], async () => {
+    const res = await getPrice(coinId as string);
+    return res.data;
+  });
 
   return (
     <DetailPresentation
       name={state?.name}
-      isLoading={isLoading}
+      isFetched={isCoinInfoFetched && isCoinPriceFetched}
+      isLoading={isCoinInfoLoading || isCoinPriceLoading}
       coinInfo={coinInfo}
       coinPrice={coinPrice}
     />
