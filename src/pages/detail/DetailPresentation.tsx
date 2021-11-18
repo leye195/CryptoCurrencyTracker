@@ -170,8 +170,8 @@ export default function DetailPresentation({
           </StatWrapper>
           <LinkWrapper>
             <Common.Row full>
-              <Tab to={`/${coinInfo?.id}/price`}>Price</Tab>
               <Tab to={`/${coinInfo?.id}/chart`}>Chart</Tab>
+              <Tab to={`/${coinInfo?.id}/price`}>Price</Tab>
             </Common.Row>
           </LinkWrapper>
           <Outlet />

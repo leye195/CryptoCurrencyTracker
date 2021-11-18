@@ -1,15 +1,11 @@
 import { useParams, useLocation } from 'react-router';
 import { useQuery } from 'react-query';
 import { getCoin, getPrice } from 'apis';
-import { CoinInfoType, CoinPriceType } from 'types/coin';
+import { CoinInfoType, CoinPriceType, DetailParams } from 'types/coin';
 import DetailPresentation from './DetailPresentation';
 
-type RouteParams = {
-  coinId?: string;
-};
-
 export default function DetailContainer() {
-  const { coinId }: RouteParams = useParams();
+  const { coinId }: DetailParams = useParams();
   const { state } = useLocation();
 
   const {

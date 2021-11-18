@@ -1,3 +1,7 @@
+export type DetailParams = {
+  coinId?: string;
+};
+
 export type CoinType = {
   id: string;
   name: string;
@@ -114,4 +118,15 @@ export type CoinPriceType = {
       percent_from_price_ath: number;
     };
   };
+};
+
+export type CoinOHLCType = {
+  time_open: string;
+  time_close: string;
+  close: number;
+  open: number;
+  market_cap: number;
+  high: number;
+  low: number;
+  volume: number;
 };
