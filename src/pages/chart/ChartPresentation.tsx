@@ -1,4 +1,5 @@
 import ReactApex from 'react-apexcharts';
+import styled from 'styled-components';
 import { CoinOHLCType } from 'types/coin';
 
 type Props = {
@@ -7,107 +8,66 @@ type Props = {
   data?: CoinOHLCType[];
 };
 
+const Container = styled.div`
+  width: 100%;
+`;
+
 const ChartPresentation = ({ isLoading, isFetched, data }: Props) => {
   return (
-    <div>
+    <Container>
       {isLoading && 'Loading Chart...'}
       {isFetched && (
-        <>
-          <ReactApex
-            type="line"
-            width={480}
-            height={300}
-            options={{
-              theme: {
-                mode: 'dark',
+        <ReactApex
+          type="line"
+          height={300}
+          width="100%"
+          options={{
+            theme: {
+              mode: 'dark',
+            },
+            chart: {
+              id: 'chart1',
+              group: 'price',
+              height: 300,
+              toolbar: {
+                autoSelected: 'pan',
+                show: false,
               },
-              chart: {
-                id: 'chart1',
-                group: 'price',
-                height: 480,
-                width: 300,
-                toolbar: {
-                  autoSelected: 'pan',
-                  show: false,
-                },
-                background: 'transparent',
+              background: 'transparent',
+            },
+            stroke: {
+              curve: 'smooth',
+              width: 3.5,
+            },
+            colors: ['#008FFB'],
+            xaxis: {
+              type: 'datetime',
+              categories: data?.map((price) => price.time_close),
+            },
+            yaxis: {
+              labels: {
+                formatter: (value) => `$${value.toFixed(2)}`,
               },
-              stroke: {
-                curve: 'smooth',
-                width: 3.5,
-              },
-              colors: ['#008FFB'],
-              xaxis: {
-                type: 'datetime',
-                categories: data?.map((price) => price.time_close),
-              },
-              yaxis: {
-                labels: {
-                  formatter: (value) => `$${value.toFixed(3)}`,
-                },
-              },
-              tooltip: {
-                enabled: true,
-                y: {
-                  formatter: undefined,
-                  title: {
-                    formatter: (seriesName) => seriesName,
-                  },
+            },
+            tooltip: {
+              enabled: true,
+              y: {
+                formatter: undefined,
+                title: {
+                  formatter: (seriesName) => seriesName,
                 },
               },
-            }}
-            series={[
-              {
-                name: 'Price:',
-                data: data?.map((price) => price.close.toFixed(2)),
-              },
-            ]}
-          />
-          <ReactApex
-            type="area"
-            width={480}
-            height={180}
-            options={{
-              theme: {
-                mode: 'dark',
-              },
-              chart: {
-                id: 'chart2',
-                type: 'area',
-                group: 'price',
-                width: 480,
-                height: 180,
-                brush: {
-                  target: 'chart1',
-                  enabled: true,
-                },
-                selection: {
-                  enabled: false,
-                },
-                background: 'transparent',
-              },
-              colors: ['#008FFB'],
-              xaxis: {
-                type: 'datetime',
-                categories: data?.map((price) => price.time_close),
-              },
-              yaxis: {
-                tickAmount: 2,
-                labels: {
-                  formatter: (value) => `$${value.toFixed(3)}`,
-                },
-              },
-            }}
-            series={[
-              {
-                name: 'Price:',
-                data: data?.map((price) => price.close.toFixed(2)),
-              },
-            ]}
-          />
-        </>
+            },
+          }}
+          series={[
+            {
+              name: 'Price:',
+              data: data?.map((price) => price.close.toFixed(2)),
+            },
+          ]}
+        />
       )}
-    </div>
+    </Container>
   );
 };
 
