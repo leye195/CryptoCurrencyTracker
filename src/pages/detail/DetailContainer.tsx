@@ -21,10 +21,16 @@ export default function DetailContainer() {
     data: coinPrice,
     isLoading: isCoinPriceLoading,
     isFetched: isCoinPriceFetched,
-  } = useQuery<CoinPriceType>(['coinPrice', coinId], async () => {
-    const res = await getPrice(coinId as string);
-    return res.data;
-  });
+  } = useQuery<CoinPriceType>(
+    ['coinPrice', coinId],
+    async () => {
+      const res = await getPrice(coinId as string);
+      return res.data;
+    },
+    {
+      refetchInterval: 5000,
+    },
+  );
 
   return (
     <DetailPresentation
