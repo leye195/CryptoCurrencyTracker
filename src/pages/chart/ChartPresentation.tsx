@@ -16,7 +16,7 @@ const ChartPresentation = ({ isLoading, isFetched, data }: Props) => {
           <ReactApex
             type="line"
             width={480}
-            height={280}
+            height={300}
             options={{
               theme: {
                 mode: 'dark',
@@ -25,11 +25,12 @@ const ChartPresentation = ({ isLoading, isFetched, data }: Props) => {
                 id: 'chart1',
                 group: 'price',
                 height: 480,
-                width: 280,
+                width: 300,
                 toolbar: {
                   autoSelected: 'pan',
                   show: false,
                 },
+                background: 'transparent',
               },
               stroke: {
                 curve: 'smooth',
@@ -65,7 +66,7 @@ const ChartPresentation = ({ isLoading, isFetched, data }: Props) => {
           <ReactApex
             type="area"
             width={480}
-            height={120}
+            height={180}
             options={{
               theme: {
                 mode: 'dark',
@@ -75,7 +76,7 @@ const ChartPresentation = ({ isLoading, isFetched, data }: Props) => {
                 type: 'area',
                 group: 'price',
                 width: 480,
-                height: 120,
+                height: 180,
                 brush: {
                   target: 'chart1',
                   enabled: true,
@@ -83,6 +84,7 @@ const ChartPresentation = ({ isLoading, isFetched, data }: Props) => {
                 selection: {
                   enabled: false,
                 },
+                background: 'transparent',
               },
               colors: ['#008FFB'],
               xaxis: {
