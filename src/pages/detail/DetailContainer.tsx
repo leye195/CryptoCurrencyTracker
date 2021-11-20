@@ -1,12 +1,14 @@
-import { useParams, useLocation } from 'react-router';
+import { useEffect } from 'react';
+import { useParams, useLocation, useNavigate } from 'react-router';
 import { useQuery } from 'react-query';
-import { getCoin, getPrice } from 'apis';
+import { getCoin, getCoinTweet, getPrice } from 'apis';
 import { CoinInfoType, CoinPriceType, DetailParams } from 'types/coin';
 import DetailPresentation from './DetailPresentation';
 
 export default function DetailContainer() {
   const { coinId }: DetailParams = useParams();
-  const { state } = useLocation();
+  const { state, pathname } = useLocation();
+  const navigator = useNavigate();
 
   const {
     data: coinInfo,
@@ -32,13 +34,29 @@ export default function DetailContainer() {
     },
   );
 
+  const {
+    data: tweets,
+    isLoading: isTweetLoading,
+    isFetched: isTweetFetched,
+  } = useQuery(['coinTweet', coinId], async () => {
+    const res = await getCoinTweet(coinId as string);
+    return res.data;
+  });
+
+  useEffect(() => {
+    if (pathname !== `/${coinId}/price` || pathname !== `/${coinId}/chart`) {
+      navigator(`./price`, { replace: true });
+    }
+  }, [pathname, coinId, navigator]);
+
   return (
     <DetailPresentation
       name={state?.name}
-      isFetched={isCoinInfoFetched && isCoinPriceFetched}
-      isLoading={isCoinInfoLoading || isCoinPriceLoading}
+      isFetched={isCoinInfoFetched && isCoinPriceFetched && isTweetFetched}
+      isLoading={isCoinInfoLoading || isCoinPriceLoading || isTweetLoading}
       coinInfo={coinInfo}
       coinPrice={coinPrice}
+      tweets={tweets}
     />
   );
 }

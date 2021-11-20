@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { numberFormat } from 'utils';
 import Common from './common';
@@ -8,6 +9,7 @@ type Props = {
   statPercent?: string | number;
   isPrice?: boolean;
   type?: 'normal' | 'link';
+  to?: string;
 };
 
 type PercentType = {
@@ -31,6 +33,7 @@ const CoinStat = ({
   statValue,
   statPercent,
   isPrice,
+  to,
 }: Props) => {
   return (
     <Container>
@@ -43,6 +46,7 @@ const CoinStat = ({
               : statValue}
           </p>
         )}
+        {type === 'link' && <Link to={to as string}>{statValue}</Link>}
         {statPercent && (
           <Common.Row justifyContent="center" alignItems="center">
             <Percent isPlus={statPercent > 0}>

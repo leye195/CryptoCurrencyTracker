@@ -16,6 +16,8 @@ const Container = styled.header`
   font-size: 1.25rem;
   font-weight: bold;
   border-bottom: 0.5px solid white;
+  z-index: 100;
+
   & > a {
     display: flex;
     align-items: center;

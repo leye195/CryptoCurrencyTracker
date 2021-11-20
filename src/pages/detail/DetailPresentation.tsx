@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router';
+import { Link } from 'react-router-dom';
+import { MdArrowRight } from 'react-icons/md';
 import CoinImg from 'components/CoinImg';
 import Tag from 'components/common/Tag';
 import CoinStat from 'components/CoinStat';
 import Tab from 'components/common/Tab';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
-import { CoinInfoType, CoinPriceType } from 'types/coin';
+import { CoinInfoType, CoinPriceType, CointTweetType } from 'types/coin';
 import { numberFormat } from 'utils';
 import {
   CoinTitleWrapper,
@@ -15,6 +17,7 @@ import {
   LinkWrapper,
   StatWrapper,
   ChartWrapper,
+  TweetWrapper,
 } from './style';
 
 type Props = {
@@ -23,6 +26,7 @@ type Props = {
   isFetched: boolean;
   coinInfo?: CoinInfoType;
   coinPrice?: CoinPriceType;
+  tweets?: CointTweetType[];
 };
 
 export default function DetailPresentation({
@@ -31,6 +35,7 @@ export default function DetailPresentation({
   isFetched = false,
   coinInfo,
   coinPrice,
+  tweets,
 }: Props) {
   return (
     <Common.Container>
@@ -120,6 +125,30 @@ export default function DetailPresentation({
           <ChartWrapper>
             <Outlet />
           </ChartWrapper>
+          <TweetWrapper>
+            <Common.Row alignItems="center" justifyContent="space-between">
+              <h3>Tweets</h3>
+              <Link to="./tweets">
+                more <MdArrowRight />
+              </Link>
+            </Common.Row>
+            {tweets?.slice(0, 3)?.map((tweet) => (
+              <Common.Col className="tweet" key={tweet.status_id}>
+                <Common.Row className="tweet__img">
+                  <a href={tweet.status_link}>
+                    <Common.Img
+                      src={tweet.user_image_link}
+                      alt={tweet.user_name}
+                    />
+                    <span>{tweet.user_name}</span>
+                  </a>
+                </Common.Row>
+                <Common.Row className="tweet__content">
+                  <p>{tweet.status}</p>
+                </Common.Row>
+              </Common.Col>
+            ))}
+          </TweetWrapper>
         </Common.Col>
       )}
     </Common.Container>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 type ColumnType = {
+  className?: string;
   alignItems?:
     | 'flex-start'
     | 'flex-end'
@@ -26,9 +27,14 @@ const Col: React.FC<ColumnType> = ({
   children,
   alignItems = 'flex-start',
   justifyContent = 'flex-start',
+  className = '',
 }) => {
   return (
-    <ColumnElement alignItems={alignItems} justifyContent={justifyContent}>
+    <ColumnElement
+      className={className}
+      alignItems={alignItems}
+      justifyContent={justifyContent}
+    >
       {children}
     </ColumnElement>
   );

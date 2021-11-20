@@ -130,3 +130,15 @@ export type CoinOHLCType = {
   low: number;
   volume: number;
 };
+
+export type CointTweetType = {
+  date: string;
+  is_retweet: boolean;
+  like_count: number;
+  retweet_count: number;
+  status: string;
+  status_id: string;
+  status_link: string;
+  user_image_link: string;
+  user_name: string;
+};

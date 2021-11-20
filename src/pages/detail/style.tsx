@@ -69,3 +69,28 @@ export const ChartWrapper = styled.div`
   padding-bottom: 1rem;
   width: 100%;
 `;
+
+export const TweetWrapper = styled(ChartWrapper)`
+  & .tweet {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #557595;
+
+    &__img {
+      display: flex;
+      align-items: center;
+
+      & img {
+        margin-right: 0.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+      }
+    }
+
+    &__content {
+      white-space: pre-wrap;
+    }
+  }
+`;

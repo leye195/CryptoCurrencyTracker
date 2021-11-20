@@ -16,3 +16,5 @@ export const getCoinOHLC = (id: string, period?: string) => {
   const start = end - 60 * 60 * 24 * convertPeriod(period);
   return api.get(`/coins/${id}/ohlcv/historical?start=${start}&end=${end}`);
 };
+
+export const getCoinTweet = (id: string) => api.get(`coins/${id}/twitter`);
