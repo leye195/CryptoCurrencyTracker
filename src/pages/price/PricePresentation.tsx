@@ -13,6 +13,7 @@ type Props = {
 
 const Container = styled.div`
   width: 100%;
+  position: relative;
 
   & .loading {
     width: 100%;
