@@ -131,7 +131,7 @@ export type CoinOHLCType = {
   volume: number;
 };
 
-export type CointTweetType = {
+export type CoinTweetType = {
   date: string;
   is_retweet: boolean;
   like_count: number;

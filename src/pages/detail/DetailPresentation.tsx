@@ -7,7 +7,7 @@ import CoinStat from 'components/CoinStat';
 import Tab from 'components/common/Tab';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
-import { CoinInfoType, CoinPriceType, CointTweetType } from 'types/coin';
+import { CoinInfoType, CoinPriceType, CoinTweetType } from 'types/coin';
 import { numberFormat } from 'utils';
 import {
   CoinTitleWrapper,
@@ -26,7 +26,7 @@ type Props = {
   isFetched: boolean;
   coinInfo?: CoinInfoType;
   coinPrice?: CoinPriceType;
-  tweets?: CointTweetType[];
+  tweets?: CoinTweetType[];
 };
 
 export default function DetailPresentation({
