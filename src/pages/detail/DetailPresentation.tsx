@@ -82,6 +82,11 @@ const LinkWrapper = styled.div`
   }
 `;
 
+const ChartWrapper = styled.div`
+  padding-bottom: 1rem;
+  width: 100%;
+`;
+
 export default function DetailPresentation({
   name = '',
   isLoading = true,
@@ -170,11 +175,13 @@ export default function DetailPresentation({
           </StatWrapper>
           <LinkWrapper>
             <Common.Row full>
-              <Tab to={`/${coinInfo?.id}/chart`}>History</Tab>
               <Tab to={`/${coinInfo?.id}/price`}>Price</Tab>
+              <Tab to={`/${coinInfo?.id}/chart`}>History</Tab>
             </Common.Row>
           </LinkWrapper>
-          <Outlet />
+          <ChartWrapper>
+            <Outlet />
+          </ChartWrapper>
         </Common.Col>
       )}
     </Common.Container>
