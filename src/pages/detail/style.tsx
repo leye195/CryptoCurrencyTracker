@@ -51,6 +51,7 @@ export const DescriptionWrapper = styled.div`
     background: #557595;
     padding: 0.5rem;
     border-radius: 0.5rem;
+    white-space: pre-line;
   }
 `;
 
@@ -71,6 +72,8 @@ export const ChartWrapper = styled.div`
 `;
 
 export const TweetWrapper = styled(ChartWrapper)`
+  padding-bottom: 2rem;
+  width: 100%;
   & .more {
     display: flex;
     justify-content: center;

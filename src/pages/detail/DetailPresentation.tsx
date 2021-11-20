@@ -5,6 +5,7 @@ import CoinImg from 'components/CoinImg';
 import CoinStat from 'components/CoinStat';
 import Common from 'components/common';
 import Tweet from 'components/Tweet';
+import ToTopButton from 'components/ToTopButton';
 import { CoinInfoType, CoinPriceType, CoinTweetType } from 'types/coin';
 import { numberFormat } from 'utils';
 import {
@@ -67,10 +68,12 @@ export default function DetailPresentation({
             <h5>{coinInfo?.name} Price</h5>
             <span>${coinPrice?.quotes.USD.price.toFixed(2)}</span>
           </PriceWrapper>
-          <DescriptionWrapper>
-            <h3>Description</h3>
-            <p>{coinInfo?.description}</p>
-          </DescriptionWrapper>
+          {coinInfo?.description && (
+            <DescriptionWrapper>
+              <h3>Description</h3>
+              <p>{coinInfo?.description}</p>
+            </DescriptionWrapper>
+          )}
           <StatWrapper>
             <CoinStat
               statName="Market Cap"
@@ -103,15 +106,23 @@ export default function DetailPresentation({
             />
             <CoinStat
               statName="Links"
-              statValue={`${Object.keys(coinInfo?.links || {})
-                .slice(0, 2)
-                .join()},etc >`}
+              statValue={
+                coinInfo?.links
+                  ? `${Object.keys(coinInfo?.links || {})
+                      .slice(0, 2)
+                      .join()},etc >`
+                  : '-'
+              }
             />
             <CoinStat
               statName="Tags"
-              statValue={`${(coinInfo?.tags.map((tag) => tag?.name) || [])
-                .slice(0, 1)
-                .join()},etc >`}
+              statValue={
+                coinInfo?.tags
+                  ? `${(coinInfo?.tags?.map((tag) => tag?.name) || [])
+                      .slice(0, 1)
+                      .join()},etc >`
+                  : '-'
+              }
             />
           </StatWrapper>
           <LinkWrapper>
@@ -136,6 +147,7 @@ export default function DetailPresentation({
           </TweetWrapper>
         </Common.Col>
       )}
+      <ToTopButton />
     </Common.Container>
   );
 }

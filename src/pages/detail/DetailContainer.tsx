@@ -44,7 +44,7 @@ export default function DetailContainer() {
   });
 
   useEffect(() => {
-    if (pathname !== `/${coinId}/price` || pathname !== `/${coinId}/chart`) {
+    if (pathname !== `/${coinId}/price` && pathname !== `/${coinId}/chart`) {
       navigator(`./price`, { replace: true });
     }
   }, [pathname, coinId, navigator]);

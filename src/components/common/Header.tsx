@@ -3,6 +3,10 @@ import { MdArrowBack } from 'react-icons/md';
 import styled from 'styled-components';
 import { useLocation } from 'react-router';
 
+type Props = {
+  title?: string;
+};
+
 const Container = styled.header`
   display: flex;
   align-items: center;
@@ -28,13 +32,13 @@ const Container = styled.header`
   }
 `;
 
-const Header = () => {
+const Header = ({ title = 'CryptoCapTracker' }: Props) => {
   const { pathname } = useLocation();
   return (
     <Container>
       <Link to="/">
         {pathname !== '/' && <MdArrowBack className="back-button" />}
-        CryptoCapTracker
+        {title}
       </Link>
     </Container>
   );

@@ -1,6 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
 import Common from 'components/common';
-import React from 'react';
 import { ButtonType } from 'types/common';
 
 const Button = styled(Common.Button)`
