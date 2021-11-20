@@ -14,3 +14,4 @@
 - [x] Detail
   - [x] Chart
   - [x] Price
+- [x] Tweets

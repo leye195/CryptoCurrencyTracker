@@ -5,6 +5,7 @@ import Title from './Title';
 import Row from './Row';
 import Col from './Col';
 import Tab from './Tab';
+import Tag from './Tag';
 import Loading from './Loading';
 import ButtonGroup from './ButtonGroup';
 import Button from './Button';
@@ -17,6 +18,7 @@ export default {
   Row,
   Col,
   Tab,
+  Tag,
   Loading,
   ButtonGroup,
   Button,

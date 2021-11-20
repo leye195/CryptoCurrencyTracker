@@ -2,11 +2,9 @@ import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MdArrowRight } from 'react-icons/md';
 import CoinImg from 'components/CoinImg';
-import Tag from 'components/common/Tag';
 import CoinStat from 'components/CoinStat';
-import Tab from 'components/common/Tab';
 import Common from 'components/common';
-import Loading from 'components/common/Loading';
+import Tweet from 'components/Tweet';
 import { CoinInfoType, CoinPriceType, CoinTweetType } from 'types/coin';
 import { numberFormat } from 'utils';
 import {
@@ -40,29 +38,29 @@ export default function DetailPresentation({
   return (
     <Common.Container>
       <Common.Header />
-      {isLoading && <Loading />}
+      {isLoading && <Common.Loading />}
       {isFetched && (
         <Common.Col>
           <Common.Row full justifyContent="center">
             <CoinTitleWrapper>
               <CoinImg symbol={coinInfo?.symbol as string} />
               <p>{name || coinInfo?.name}</p>
-              <Tag>
+              <Common.Tag>
                 <p>{coinInfo?.symbol}</p>
-              </Tag>
+              </Common.Tag>
             </CoinTitleWrapper>
           </Common.Row>
           <TagsWrapper>
             <Common.Row justifyContent="center">
-              <Tag>
+              <Common.Tag>
                 <p>Rank #{coinInfo?.rank}</p>
-              </Tag>
-              <Tag>
+              </Common.Tag>
+              <Common.Tag>
                 <p>{coinInfo?.type}</p>
-              </Tag>
-              <Tag>
+              </Common.Tag>
+              <Common.Tag>
                 <p>OpenSource: {coinInfo?.open_source ? 'Yes' : 'No'}</p>
-              </Tag>
+              </Common.Tag>
             </Common.Row>
           </TagsWrapper>
           <PriceWrapper>
@@ -118,8 +116,8 @@ export default function DetailPresentation({
           </StatWrapper>
           <LinkWrapper>
             <Common.Row full>
-              <Tab to={`/${coinInfo?.id}/price`}>Price</Tab>
-              <Tab to={`/${coinInfo?.id}/chart`}>History</Tab>
+              <Common.Tab to={`/${coinInfo?.id}/price`}>Price</Common.Tab>
+              <Common.Tab to={`/${coinInfo?.id}/chart`}>History</Common.Tab>
             </Common.Row>
           </LinkWrapper>
           <ChartWrapper>
@@ -128,25 +126,12 @@ export default function DetailPresentation({
           <TweetWrapper>
             <Common.Row alignItems="center" justifyContent="space-between">
               <h3>Tweets</h3>
-              <Link to="./tweets">
+              <Link className="more" to="./tweets">
                 more <MdArrowRight />
               </Link>
             </Common.Row>
             {tweets?.slice(0, 3)?.map((tweet) => (
-              <Common.Col className="tweet" key={tweet.status_id}>
-                <Common.Row className="tweet__img">
-                  <a href={tweet.status_link}>
-                    <Common.Img
-                      src={tweet.user_image_link}
-                      alt={tweet.user_name}
-                    />
-                    <span>{tweet.user_name}</span>
-                  </a>
-                </Common.Row>
-                <Common.Row className="tweet__content">
-                  <p>{tweet.status}</p>
-                </Common.Row>
-              </Common.Col>
+              <Tweet key={tweet.status_id} tweet={tweet} />
             ))}
           </TweetWrapper>
         </Common.Col>
