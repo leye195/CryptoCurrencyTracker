@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+import { MdArrowBack } from 'react-icons/md';
 import styled from 'styled-components';
+import { useLocation } from 'react-router';
 
 const Container = styled.header`
   display: flex;
@@ -14,12 +16,24 @@ const Container = styled.header`
   font-size: 1.25rem;
   font-weight: bold;
   border-bottom: 0.5px solid white;
+  & > a {
+    display: flex;
+    align-items: center;
+  }
+
+  & .back-button {
+    margin-right: 1rem;
+  }
 `;
 
 const Header = () => {
+  const { pathname } = useLocation();
   return (
     <Container>
-      <Link to="/">CryptoCapTracker</Link>
+      <Link to="/">
+        {pathname !== '/' && <MdArrowBack className="back-button" />}
+        CryptoCapTracker
+      </Link>
     </Container>
   );
 };

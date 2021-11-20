@@ -3,7 +3,7 @@
 ## Stack
 
 - react
-- react-router
+- react-router, react-router-dom
 - styled-component
 - react-query
 - apexcharts
@@ -12,5 +12,5 @@
 
 - [x] Home
 - [x] Detail
-  - [ ] Chart
-  - [ ] Price
+  - [x] Chart
+  - [x] Price
