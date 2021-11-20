@@ -31,6 +31,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/no-array-index-key": "off",
     "react/require-default-props": "off",
+    "react/button-has-type": "off",
     "func-names": ["error", "as-needed"],
     "no-unused-vars": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",
