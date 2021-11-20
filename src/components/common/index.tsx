@@ -5,6 +5,9 @@ import Title from './Title';
 import Row from './Row';
 import Col from './Col';
 import Tab from './Tab';
+import Loading from './Loading';
+import ButtonGroup from './ButtonGroup';
+import Button from './Button';
 
 export default {
   Img,
@@ -14,4 +17,7 @@ export default {
   Row,
   Col,
   Tab,
+  Loading,
+  ButtonGroup,
+  Button,
 };

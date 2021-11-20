@@ -10,9 +10,9 @@ const Tab: React.FC<Props> = ({ to, children }) => {
       to={to}
       style={({ isActive }) => {
         return {
-          backgroundColor: isActive ? 'white' : '',
-          color: isActive ? 'black' : '',
-          borderRadius: isActive ? '0.5rem' : '0',
+          backgroundColor: isActive ? '#ffffff' : 'rgba(255,255,255,0.15)',
+          color: isActive ? '#000000' : '',
+          borderRadius: '0.5rem',
         };
       }}
     >
