@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
 import ToTopButton from 'components/ToTopButton';
+
 import { CoinType } from 'types/coin';
 import { Coin, CoinsList } from './style';
 
@@ -18,6 +19,7 @@ export default function HomePresentation({
 }: Props) {
   return (
     <Common.Container>
+      <Common.SEO />
       <Common.Header />
       <CoinsList>
         {isLoading && <Loading />}

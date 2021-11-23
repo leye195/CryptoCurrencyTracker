@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet';
 
 type Props = {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 };
 
-const SEO = ({ title, description }: Props) => {
+const SEO = ({ title = 'CryptoCapTracker', description = '' }: Props) => {
   return (
     <Helmet>
       <title>{title}</title>

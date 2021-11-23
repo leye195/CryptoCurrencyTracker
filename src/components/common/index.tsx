@@ -9,6 +9,7 @@ import Tag from './Tag';
 import Loading from './Loading';
 import ButtonGroup from './ButtonGroup';
 import Button from './Button';
+import SEO from './SEO';
 
 export default {
   Img,
@@ -22,4 +23,5 @@ export default {
   Loading,
   ButtonGroup,
   Button,
+  SEO,
 };

@@ -38,6 +38,10 @@ export default function DetailPresentation({
 }: Props) {
   return (
     <Common.Container>
+      <Common.SEO
+        title={`CryptoCapTracker | ${name || coinInfo?.name}`}
+        description=""
+      />
       <Common.Header />
       {isLoading && <Common.Loading />}
       {isFetched && (
