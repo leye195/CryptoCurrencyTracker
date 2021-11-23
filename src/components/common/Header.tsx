@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MdArrowBack } from 'react-icons/md';
+import { MdArrowBack, MdSearch } from 'react-icons/md';
 import styled from 'styled-components';
 import { useLocation, useNavigate } from 'react-router';
 import Common from 'components/common';
@@ -32,6 +32,12 @@ const Container = styled.header`
     margin-right: 1rem;
     color: white;
   }
+
+  & .search-button {
+    color: white;
+
+    font-size: 1.5rem;
+  }
 `;
 
 const Header = ({ title = 'CryptoCapTracker' }: Props) => {
@@ -44,16 +50,27 @@ const Header = ({ title = 'CryptoCapTracker' }: Props) => {
 
   return (
     <Container>
-      {pathname !== '/' && (
+      <Common.Row full justifyContent="space-between" alignItems="center">
+        <div>
+          {pathname !== '/' && (
+            <Common.Button
+              className="back-button"
+              type="button"
+              onClick={handleBack}
+            >
+              <MdArrowBack />
+            </Common.Button>
+          )}
+          <Link to="/">{title}</Link>
+        </div>
         <Common.Button
-          className="back-button"
+          className="search-button"
           type="button"
-          onClick={handleBack}
+          onClick={() => {}}
         >
-          <MdArrowBack />
+          <MdSearch />
         </Common.Button>
-      )}
-      <Link to="/">{title}</Link>
+      </Common.Row>
     </Container>
   );
 };
