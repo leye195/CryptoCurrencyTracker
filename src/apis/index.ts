@@ -18,3 +18,6 @@ export const getCoinOHLC = (id: string, period?: string) => {
 };
 
 export const getCoinTweet = (id: string) => api.get(`coins/${id}/twitter`);
+
+export const getMarketsByCoin = (id: string) =>
+  api.get(`coins/${id}/markets?quotes=USD,BTC`);

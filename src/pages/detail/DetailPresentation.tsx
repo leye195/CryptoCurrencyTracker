@@ -129,6 +129,7 @@ export default function DetailPresentation({
             <Common.Row full>
               <Common.Tab to={`/${coinInfo?.id}/price`}>Price</Common.Tab>
               <Common.Tab to={`/${coinInfo?.id}/chart`}>History</Common.Tab>
+              <Common.Tab to={`/${coinInfo?.id}/markets`}>Markets</Common.Tab>
             </Common.Row>
           </LinkWrapper>
           <ChartWrapper>

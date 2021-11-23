@@ -142,3 +142,28 @@ export type CoinTweetType = {
   user_image_link: string;
   user_name: string;
 };
+
+export type QuoteType = {
+  USD: {
+    price: number;
+    volume_24h: number;
+  };
+};
+
+export type CoinMarketType = {
+  exchange_id: string;
+  exchange_name: string;
+  pair: string;
+  base_currency_id: string;
+  base_currency_name: string;
+  quote_currency_id: string;
+  quote_currency_name: string;
+  market_url: string;
+  category: string;
+  fee_type: string;
+  outlier: boolean;
+  adjusted_volume_24h_share: number;
+  quotes: QuoteType;
+  last_updated: string;
+  trust_score: string;
+};

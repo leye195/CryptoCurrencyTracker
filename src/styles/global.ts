@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    border-spacing: 0;
+;
   }
 
   body {

@@ -13,7 +13,10 @@
 ## Screens
 
 - [x] Home
-- [x] Detail
+- [x] Coin Detail
   - [x] Chart
   - [x] Price
+  - [x] Markets
 - [x] Tweets
+- [] Search
+- [] Exchange Detail
