@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { MdArrowBack } from 'react-icons/md';
 import styled from 'styled-components';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
+import Common from 'components/common';
 
 type Props = {
   title?: string;
@@ -29,17 +30,30 @@ const Container = styled.header`
 
   & .back-button {
     margin-right: 1rem;
+    color: white;
   }
 `;
 
 const Header = ({ title = 'CryptoCapTracker' }: Props) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <Container>
-      <Link to="/">
-        {pathname !== '/' && <MdArrowBack className="back-button" />}
-        {title}
-      </Link>
+      {pathname !== '/' && (
+        <Common.Button
+          className="back-button"
+          type="button"
+          onClick={handleBack}
+        >
+          <MdArrowBack />
+        </Common.Button>
+      )}
+      <Link to="/">{title}</Link>
     </Container>
   );
 };
