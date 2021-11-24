@@ -3,7 +3,7 @@ import React, { MouseEvent } from 'react';
 type Props = {
   className?: string;
   type?: 'button' | 'reset' | 'submit';
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick: (e?: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button: React.FC<Props> = ({

@@ -14,7 +14,6 @@ const TweetsPresentation = ({ isLoading, isFetched, tweets }: Props) => {
   return (
     <Common.Container>
       <Common.SEO title="CryptoCapTracker | Tweets" />
-      <Common.Header />
       {isLoading && <Common.Loading />}
       {isFetched && (
         <Common.Col>

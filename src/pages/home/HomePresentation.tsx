@@ -20,7 +20,6 @@ export default function HomePresentation({
   return (
     <Common.Container>
       <Common.SEO />
-      <Common.Header />
       <CoinsList>
         {isLoading && <Loading />}
         {isFetched &&

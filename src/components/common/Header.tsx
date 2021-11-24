@@ -6,12 +6,13 @@ import Common from 'components/common';
 
 type Props = {
   title?: string;
+  handleSearchOpen: (isOpen: boolean) => () => void;
 };
 
 const Container = styled.header`
   display: flex;
   align-items: center;
-  height: 5rem;
+  height: 4rem;
   width: 100%;
   padding: 0 1rem;
   position: fixed;
@@ -35,12 +36,11 @@ const Container = styled.header`
 
   & .search-button {
     color: white;
-
     font-size: 1.5rem;
   }
 `;
 
-const Header = ({ title = 'CryptoCapTracker' }: Props) => {
+const Header = ({ title = 'CryptoCapTracker', handleSearchOpen }: Props) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -66,7 +66,7 @@ const Header = ({ title = 'CryptoCapTracker' }: Props) => {
         <Common.Button
           className="search-button"
           type="button"
-          onClick={() => {}}
+          onClick={handleSearchOpen(true)}
         >
           <MdSearch />
         </Common.Button>

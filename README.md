@@ -18,5 +18,5 @@
   - [x] Price
   - [x] Markets
 - [x] Tweets
-- [] Search
-- [] Exchange Detail
+- [x] Search
+- [ ] Exchange Detail

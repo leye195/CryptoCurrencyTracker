@@ -42,7 +42,6 @@ export default function DetailPresentation({
         title={`CryptoCapTracker | ${name || coinInfo?.name}`}
         description=""
       />
-      <Common.Header />
       {isLoading && <Common.Loading />}
       {isFetched && (
         <Common.Col>
@@ -139,17 +138,19 @@ export default function DetailPresentation({
           <ChartWrapper>
             <Outlet />
           </ChartWrapper>
-          <TweetWrapper>
-            <Common.Row alignItems="center" justifyContent="space-between">
-              <h3>Tweets</h3>
-              <Link className="more" to="./tweets">
-                more <MdArrowRight />
-              </Link>
-            </Common.Row>
-            {tweets?.slice(0, 3)?.map((tweet) => (
-              <Tweet key={tweet.status_id} tweet={tweet} />
-            ))}
-          </TweetWrapper>
+          {tweets && tweets.length > 0 && (
+            <TweetWrapper>
+              <Common.Row alignItems="center" justifyContent="space-between">
+                <h3>Tweets</h3>
+                <Link className="more" to="./tweets">
+                  more <MdArrowRight />
+                </Link>
+              </Common.Row>
+              {tweets?.slice(0, 3)?.map((tweet) => (
+                <Tweet key={tweet.status_id} tweet={tweet} />
+              ))}
+            </TweetWrapper>
+          )}
         </Common.Col>
       )}
       <ToTopButton />

@@ -167,3 +167,15 @@ export type CoinMarketType = {
   last_updated: string;
   trust_score: string;
 };
+
+export type ExchangeType = {
+  id: string;
+  name: string;
+  rank: number;
+  rev: number;
+};
+
+export type SearchResultType = {
+  currencies?: CoinType[];
+  exchanges?: ExchangeType[];
+};
