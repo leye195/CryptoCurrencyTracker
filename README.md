@@ -5,6 +5,7 @@
 ## Stack
 
 - react
+- typescript
 - react-router, react-router-dom
 - styled-component
 - react-query
