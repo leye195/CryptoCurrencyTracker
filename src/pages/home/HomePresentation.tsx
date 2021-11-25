@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
-import ToTopButton from 'components/ToTopButton';
 
 import { CoinType } from 'types/coin';
 import { Coin, CoinsList } from './style';
@@ -38,7 +37,6 @@ export default function HomePresentation({
             </Coin>
           ))}
       </CoinsList>
-      <ToTopButton />
     </Common.Container>
   );
 }

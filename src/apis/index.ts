@@ -23,4 +23,11 @@ export const getMarketsByCoin = (id: string) =>
   api.get(`coins/${id}/markets?quotes=USD,BTC`);
 
 export const search = (query: string) =>
-  api(`search?c=currencies,exchanges&q=${query}`);
+  api.get(`search?c=currencies,exchanges&q=${query}`);
+
+export const getExchanges = () => api.get('exchanges');
+
+export const getExchange = (id: string) => api.get(`exchanges/${id}`);
+
+export const getMarketListOnExchange = (id: string) =>
+  api.get(`exchanges/${id}/markets`);

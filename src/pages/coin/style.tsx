@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CoinTitleWrapper = styled.div`
+export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,6 @@ export const StatWrapper = styled.div`
 
 export const DescriptionWrapper = styled.div`
   & > p {
-    line-height: 1.25em;
     background: #557595;
     padding: 0.5rem;
     border-radius: 0.5rem;

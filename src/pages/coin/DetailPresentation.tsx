@@ -5,11 +5,10 @@ import CoinImg from 'components/CoinImg';
 import CoinStat from 'components/CoinStat';
 import Common from 'components/common';
 import Tweet from 'components/Tweet';
-import ToTopButton from 'components/ToTopButton';
 import { CoinInfoType, CoinPriceType, CoinTweetType } from 'types/coin';
 import { numberFormat } from 'utils';
 import {
-  CoinTitleWrapper,
+  TitleWrapper,
   TagsWrapper,
   PriceWrapper,
   DescriptionWrapper,
@@ -46,13 +45,13 @@ export default function DetailPresentation({
       {isFetched && (
         <Common.Col>
           <Common.Row full justifyContent="center">
-            <CoinTitleWrapper>
+            <TitleWrapper>
               <CoinImg symbol={coinInfo?.symbol as string} />
               <p>{name || coinInfo?.name}</p>
               <Common.Tag>
                 <p>{coinInfo?.symbol}</p>
               </Common.Tag>
-            </CoinTitleWrapper>
+            </TitleWrapper>
           </Common.Row>
           <TagsWrapper>
             <Common.Row justifyContent="center">
@@ -153,7 +152,6 @@ export default function DetailPresentation({
           )}
         </Common.Col>
       )}
-      <ToTopButton />
     </Common.Container>
   );
 }

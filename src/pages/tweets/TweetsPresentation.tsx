@@ -1,5 +1,4 @@
 import Common from 'components/common';
-import ToTopButton from 'components/ToTopButton';
 import Tweet from 'components/Tweet';
 
 import { CoinTweetType } from 'types/coin';
@@ -22,7 +21,6 @@ const TweetsPresentation = ({ isLoading, isFetched, tweets }: Props) => {
           ))}
         </Common.Col>
       )}
-      <ToTopButton />
     </Common.Container>
   );
 };

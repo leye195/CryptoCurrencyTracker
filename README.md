@@ -20,4 +20,4 @@
   - [x] Markets
 - [x] Tweets
 - [x] Search
-- [ ] Exchange Detail
+- [x] Exchange Detail

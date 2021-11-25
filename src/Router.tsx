@@ -1,11 +1,14 @@
 import { Routes, Route } from 'react-router';
-import Home from 'pages/home';
-import Detail from 'pages/detail';
-import Price from 'pages/detail/price';
-import Chart from 'pages/detail/chart';
-import Market from 'pages/detail/market';
-import Tweets from 'pages/tweets';
+
 import Layout from 'components/layout/Layout';
+
+import Home from 'pages/home';
+import Detail from 'pages/coin';
+import Price from 'pages/coin/price';
+import Chart from 'pages/coin/chart';
+import Market from 'pages/coin/market';
+import Tweets from 'pages/tweets';
+import Exchange from 'pages/exchange';
 
 const Router = () => {
   return (
@@ -18,6 +21,7 @@ const Router = () => {
           <Route path="/:coinId/markets" element={<Market />} />
         </Route>
         <Route path="/:coinId/tweets" element={<Tweets />} />
+        <Route path="/exchange/:exchangeId" element={<Exchange />} />
         <Route
           path="*"
           element={

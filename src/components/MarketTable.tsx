@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { CoinMarketType } from 'types/coin';
 import { numberFormat } from 'utils';
@@ -57,7 +58,9 @@ const MarketTable = ({ markets }: Props) => {
         {markets?.slice(0, 20)?.map((market, idx) => (
           <TableRow key={`${market.exchange_id}-${market.pair}`}>
             <TableRowItem isLastRow={idx === 19}>
-              {market.exchange_name}
+              <Link to={`/exchange/${market.exchange_id}`}>
+                {market.exchange_name}
+              </Link>
             </TableRowItem>
             <TableRowItem isLastRow={idx === 19}>
               <a href={market.market_url}>{market.pair}</a>
