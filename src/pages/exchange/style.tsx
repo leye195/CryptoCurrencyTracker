@@ -46,6 +46,11 @@ export const DescriptionWrapper = styled.div`
   }
 `;
 
+export const StatWrapper = styled.div`
+  width: 100%;
+  margin-top: 1.5rem;
+`;
+
 export const MarketsWrapper = styled.div`
   width: 100%;
   position: relative;

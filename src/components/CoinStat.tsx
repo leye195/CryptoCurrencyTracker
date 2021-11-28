@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { numberFormat } from 'utils';
 import Common from './common';
@@ -46,7 +45,7 @@ const CoinStat = ({
               : statValue}
           </p>
         )}
-        {type === 'link' && <Link to={to as string}>{statValue}</Link>}
+        {type === 'link' && <a href={to}>{statValue}</a>}
         {statPercent && (
           <Common.Row justifyContent="center" alignItems="center">
             <Percent isPlus={statPercent > 0}>

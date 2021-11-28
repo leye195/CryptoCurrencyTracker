@@ -1,7 +1,8 @@
 import CoinTable from 'components/CoinTable';
 import Common from 'components/common';
 import ExchangeImg from 'components/ExchangeImg';
-import { DescriptionWrapper } from 'pages/coin/style';
+import CoinStat from 'components/CoinStat';
+import { DescriptionWrapper, StatWrapper } from 'pages/coin/style';
 import { ExchangeInfoType, MarketType } from 'types/exchange';
 import { numberFormat } from 'utils';
 import {
@@ -26,6 +27,7 @@ const ExchangePresentation = ({
 }: Props) => {
   return (
     <Common.Container>
+      <Common.SEO />
       {isLoading && <Common.Loading />}
       {isFetched && (
         <Common.Col>
@@ -51,6 +53,26 @@ const ExchangePresentation = ({
               <h3>Description</h3>
               <p>{exchangeInfo.description}</p>
             </DescriptionWrapper>
+          )}
+          {exchangeInfo?.links && (
+            <StatWrapper>
+              {exchangeInfo?.links?.website && (
+                <CoinStat
+                  statName="Website"
+                  statValue={exchangeInfo?.links.website[0]}
+                  type="link"
+                  to={exchangeInfo?.links.website[0]}
+                />
+              )}
+              {exchangeInfo?.links?.twitter && (
+                <CoinStat
+                  statName="Twitter"
+                  statValue={exchangeInfo?.links.twitter[0]}
+                  type="link"
+                  to={exchangeInfo?.links.twitter[0]}
+                />
+              )}
+            </StatWrapper>
           )}
           {exchangeMarkets && exchangeMarkets.length > 0 && (
             <MarketsWrapper>

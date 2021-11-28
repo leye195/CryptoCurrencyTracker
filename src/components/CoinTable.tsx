@@ -42,10 +42,17 @@ const TableRowItem = styled.td<{ isLastRow: boolean }>`
     color: #8cc4ff;
   }
 
-  & p {
-    margin: 0 0 0 0.5rem;
-    line-height: 1.5rem;
-    white-space: pre;
+  & .currency {
+    max-width: 5rem;
+    overflow: hidden;
+
+    & p {
+      margin: 0 0 0 0.5rem;
+      line-height: 1.5rem;
+      white-space: pre;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   & img {
@@ -74,7 +81,7 @@ const CoinTable = ({ coins }: Props) => {
               <Link to={`/${coin.base_currency_id}`}>
                 <Common.Row alignItems="center">
                   <CoinImg symbol={coin.base_currency_id.split('-')[0]} />
-                  <Common.Row alignItems="center">
+                  <Common.Row className="currency" alignItems="center">
                     <p>{coin.base_currency_name}</p>
                   </Common.Row>
                 </Common.Row>

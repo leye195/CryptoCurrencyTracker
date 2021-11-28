@@ -52,4 +52,8 @@ export type ExchangeInfoType = {
   fiats: FiatType[];
   quotes: QuoteType;
   last_updated: string;
+  links: {
+    website: string[];
+    twitter: string[];
+  };
 };
