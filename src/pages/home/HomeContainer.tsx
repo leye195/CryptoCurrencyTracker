@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
-import { getCoins } from 'apis';
+import { getCoins, getNewsPosts } from 'apis';
 import { CoinType } from 'types/coin';
+import { NewsType } from 'types/news';
 import HomePresentation from './HomePresentation';
 
 export default function HomeContainer() {
@@ -12,11 +13,21 @@ export default function HomeContainer() {
     },
   );
 
+  const {
+    data: news,
+    isLoading: isNewsLoading,
+    isFetched: isNewsFetched,
+  } = useQuery<NewsType>('news', async () => {
+    const res = await getNewsPosts();
+    return res.data;
+  });
+
   return (
     <HomePresentation
-      isLoading={isLoading}
-      isFetched={isFetched}
+      isLoading={isLoading || isNewsLoading}
+      isFetched={isFetched || isNewsFetched}
       coins={data}
+      news={news}
     />
   );
 }

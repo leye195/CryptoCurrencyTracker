@@ -73,8 +73,10 @@ export const ChartWrapper = styled.div`
 export const TweetWrapper = styled(ChartWrapper)`
   padding-bottom: 2rem;
   width: 100%;
+
   & .more {
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 `;

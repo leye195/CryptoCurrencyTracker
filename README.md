@@ -21,3 +21,4 @@
 - [x] Tweets
 - [x] Search
 - [x] Exchange Detail
+- [ ] News

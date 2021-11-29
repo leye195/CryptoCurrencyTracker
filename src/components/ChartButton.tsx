@@ -16,6 +16,7 @@ const Button = styled(Common.Button)`
     background-color: white;
     color: black;
     border: 1px solid #eff2f5;
+    box-shadow: 0px 2px 3px 0px #b1b1b1;
   }
 `;
 

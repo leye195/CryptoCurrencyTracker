@@ -39,7 +39,7 @@ export default function DetailPresentation({
     <Common.Container>
       <Common.SEO
         title={`CryptoCapTracker | ${name || coinInfo?.name}`}
-        description=""
+        description={coinInfo?.description}
       />
       {isLoading && <Common.Loading />}
       {isFetched && (

@@ -27,7 +27,10 @@ const ExchangePresentation = ({
 }: Props) => {
   return (
     <Common.Container>
-      <Common.SEO />
+      <Common.SEO
+        title={`CryptoCapTracker | ${exchangeInfo?.name}`}
+        description={exchangeInfo?.description}
+      />
       {isLoading && <Common.Loading />}
       {isFetched && (
         <Common.Col>

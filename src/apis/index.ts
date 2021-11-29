@@ -5,6 +5,10 @@ const api = axios.create({
   baseURL: 'https://api.coinpaprika.com/v1/',
 });
 
+const newsApi = axios.create({
+  baseURL: 'https://min-api.cryptocompare.com/data/v2/',
+});
+
 export const getCoins = () => api.get('coins');
 
 export const getCoin = (id: string) => api.get(`coins/${id}`);
@@ -31,3 +35,5 @@ export const getExchange = (id: string) => api.get(`exchanges/${id}`);
 
 export const getMarketListOnExchange = (id: string) =>
   api.get(`exchanges/${id}/markets`);
+
+export const getNewsPosts = () => newsApi.get('news/?lang=EN');
