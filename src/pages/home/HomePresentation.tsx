@@ -1,17 +1,25 @@
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
 
 import { CoinType } from 'types/coin';
 import { NewsType } from 'types/news';
-import { Coin, CoinsList, NewsCard, NewsContainer, NewsList } from './style';
+import {
+  Coin,
+  CoinsList,
+  Dot,
+  NewsCard,
+  NewsContainer,
+  NewsList,
+} from './style';
 
 type Props = {
   coins?: CoinType[];
   news?: NewsType;
   isLoading: boolean;
   isFetched: boolean;
+  currentDot: number;
+  handleDot: (index: number) => () => void;
 };
 
 export default function HomePresentation({
@@ -19,6 +27,8 @@ export default function HomePresentation({
   news,
   isLoading,
   isFetched,
+  currentDot,
+  handleDot,
 }: Props) {
   return (
     <Common.Container>
@@ -27,9 +37,14 @@ export default function HomePresentation({
         {isFetched && (
           <>
             <h3>News</h3>
-            <NewsList full alignItems="center">
-              {news?.Data?.slice(0, 5).map((post) => (
-                <NewsCard className="news" key={post.id}>
+            <NewsList>
+              {news?.Data?.slice(0, 5).map((post, idx) => (
+                <NewsCard
+                  key={post.id}
+                  className="news"
+                  currentDot={currentDot}
+                  position={idx}
+                >
                   <a href={post.url}>
                     <Common.Row full alignItems="center">
                       <p className="news__source">{post.source}</p>
@@ -41,6 +56,15 @@ export default function HomePresentation({
                 </NewsCard>
               ))}
             </NewsList>
+            <Common.Row full justifyContent="center" alignItems="space-between">
+              {news?.Data?.slice(0, 5).map((_, idx) => (
+                <Dot
+                  key={`dot${idx}`}
+                  active={idx === currentDot}
+                  onClick={handleDot(idx)}
+                />
+              ))}
+            </Common.Row>
           </>
         )}
       </NewsContainer>

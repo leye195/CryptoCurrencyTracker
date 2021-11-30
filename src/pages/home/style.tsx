@@ -1,5 +1,13 @@
 import styled from 'styled-components';
-import Common from 'components/common';
+
+type DotType = {
+  active?: boolean;
+};
+
+type NewsType = {
+  position: number;
+  currentDot: number;
+};
 
 export const CoinsList = styled.ul`
   padding: 0;
@@ -34,25 +42,37 @@ export const NewsContainer = styled.div`
   max-width: inherit;
 `;
 
-export const NewsList = styled(Common.Row)`
-  padding-bottom: 1.5rem;
+export const NewsList = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1;
   margin-bottom: 1rem;
   overflow: auto hidden;
   white-space: nowrap;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
-export const NewsCard = styled.div`
+export const NewsCard = styled.div<NewsType>`
   display: flex;
   flex-direction: column;
   position: relative;
   flex-wrap: wrap;
-  width: 90%;
+  min-width: 440px;
   height: 10rem;
-  padding: 1rem;
-  margin-right: 1rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
   background-color: white;
   border-radius: 1rem;
   color: black;
+
+  transform: ${(props) => `translateX(${props.currentDot * -448}px)`};
+  transition: transform 1s cubic-bezier(0.5, 0, 0.1, 1);
 
   & img {
     position: relative;
@@ -65,10 +85,12 @@ export const NewsCard = styled.div`
 
   & .news__title {
     white-space: pre-wrap;
-    width: max-content;
-    height: 2.5rem;
+    width: 20rem;
+    height: 1.5rem;
     max-width: 100%;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   & .news__source {
@@ -78,5 +100,19 @@ export const NewsCard = styled.div`
   & .news__categories {
     margin: 0.7rem 0 0 0;
     font-size: 0.85rem;
+  }
+`;
+
+export const Dot = styled.div<DotType>`
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  background-color: white;
+  opacity: ${(props) => (props.active ? 1 : 0.5)};
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
   }
 `;

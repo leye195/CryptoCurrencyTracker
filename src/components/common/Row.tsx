@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-type RowType = {
+export type RowType = {
   alignItems?:
     | 'flex-start'
     | 'flex-end'
