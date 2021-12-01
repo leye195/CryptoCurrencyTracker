@@ -7,6 +7,7 @@ export type NewsData = {
   url: string;
   source: string;
   categories: string;
+  tags: string;
 };
 
 export type NewsType = {

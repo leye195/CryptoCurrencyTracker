@@ -9,6 +9,7 @@ import Chart from 'pages/coin/chart';
 import Market from 'pages/coin/market';
 import Tweets from 'pages/tweets';
 import Exchange from 'pages/exchange';
+import News from 'pages/news';
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         </Route>
         <Route path="/:coinId/tweets" element={<Tweets />} />
         <Route path="/exchange/:exchangeId" element={<Exchange />} />
+        <Route path="/news" element={<News />} />
         <Route
           path="*"
           element={
