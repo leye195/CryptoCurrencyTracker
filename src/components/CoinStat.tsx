@@ -23,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Percent = styled.span<PercentType>`
-  color: ${(props) => (props.isPlus ? '#16c784' : '#ea3943')};
+  color: ${(props) => (props.isPlus ? props.theme.green : props.theme.red)};
 `;
 
 const CoinStat = ({

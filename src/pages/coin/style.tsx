@@ -47,7 +47,7 @@ export const StatWrapper = styled.div`
 
 export const DescriptionWrapper = styled.div`
   & > p {
-    background: #557595;
+    background: ${(props) => props.theme.blueYonder};
     padding: 0.5rem;
     border-radius: 0.5rem;
     white-space: pre-line;

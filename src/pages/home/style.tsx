@@ -14,7 +14,7 @@ export const CoinsList = styled.ul`
 `;
 
 export const Coin = styled.li`
-  background-color: white;
+  background-color: ${(props) => props.theme.white};
   color: ${(props) => props.theme.bgColor};
   margin-bottom: 1rem;
   border-radius: 1rem;
@@ -40,6 +40,11 @@ export const Coin = styled.li`
 
 export const NewsContainer = styled.div`
   max-width: inherit;
+
+  & > h3 a {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const NewsList = styled.div`
@@ -67,12 +72,16 @@ export const NewsCard = styled.div<NewsType>`
   height: 10rem;
   padding: 0.5rem;
   margin-right: 0.5rem;
-  background-color: white;
+  background-color: ${(props) => props.theme.white};
   border-radius: 1rem;
-  color: black;
+  color: ${(props) => props.theme.black};
 
   transform: ${(props) => `translateX(${props.currentDot * -448}px)`};
   transition: transform 1s cubic-bezier(0.5, 0, 0.1, 1);
+
+  & > a {
+    height: inherit;
+  }
 
   & img {
     position: relative;
@@ -95,9 +104,10 @@ export const NewsCard = styled.div<NewsType>`
 
   & .news__source {
     font-weight: bold;
+    color: ${(props) => props.theme.blue};
   }
 
-  & .news__categories {
+  & .news__tags {
     margin: 0.7rem 0 0 0;
     font-size: 0.85rem;
   }
@@ -108,7 +118,7 @@ export const Dot = styled.div<DotType>`
   height: 0.8rem;
   margin: 0 0.5rem;
   border-radius: 50%;
-  background-color: white;
+  background-color: ${(props) => props.theme.white};
   opacity: ${(props) => (props.active ? 1 : 0.5)};
   cursor: pointer;
 

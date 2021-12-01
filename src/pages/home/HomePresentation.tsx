@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { MdArrowRight } from 'react-icons/md';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
+import { capitalize, summarizeTags } from 'utils';
 
 import { CoinType } from 'types/coin';
 import { NewsType } from 'types/news';
@@ -36,7 +38,11 @@ export default function HomePresentation({
       <NewsContainer>
         {isFetched && (
           <>
-            <h3>News</h3>
+            <h3>
+              <Link to="/news">
+                News <MdArrowRight />
+              </Link>
+            </h3>
             <NewsList>
               {news?.Data?.slice(0, 5).map((post, idx) => (
                 <NewsCard
@@ -47,11 +53,11 @@ export default function HomePresentation({
                 >
                   <a href={post.url}>
                     <Common.Row full alignItems="center">
-                      <p className="news__source">{post.source}</p>
+                      <p className="news__source">{capitalize(post.source)}</p>
                       <Common.Img src={post.imageurl} alt={post.title} />
                     </Common.Row>
                     <p className="news__title">{post.title}</p>
-                    <p className="news__categories">{post.categories}</p>
+                    <p className="news__tags">{summarizeTags(post.tags)}</p>
                   </a>
                 </NewsCard>
               ))}

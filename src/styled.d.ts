@@ -5,5 +5,11 @@ declare module 'styled-components' {
     textColor: string;
     bgColor: string;
     accentColor: string;
+    blue: string;
+    blueYonder: string;
+    white: string;
+    black: string;
+    green: string;
+    red: string;
   }
 }

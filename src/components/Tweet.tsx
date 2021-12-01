@@ -11,7 +11,7 @@ const Container = styled(Common.Col)`
   margin-bottom: 1rem;
   width: 100%;
   border-radius: 0.5rem;
-  background-color: #557595;
+  background-color: ${(props) => props.theme.blueYonder};
 
   & .tweet__img {
     display: flex;

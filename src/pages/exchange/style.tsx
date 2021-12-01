@@ -41,7 +41,7 @@ export const DescriptionWrapper = styled.div`
   & > p {
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background: #557595;
+    background: ${(props) => props.theme.blueYonder};
     white-space: pre-line;
   }
 `;
