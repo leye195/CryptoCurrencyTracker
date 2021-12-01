@@ -1,6 +1,6 @@
 # CryptoCap Tracker
 
-![image](https://user-images.githubusercontent.com/30601503/142728387-d462dadc-9b1d-4351-ae64-7c2cb415ec66.png)
+![image](https://user-images.githubusercontent.com/30601503/144264068-a964b64f-a64b-4999-b62e-f84b18b66e17.png)
 
 ## Stack
 
@@ -21,4 +21,4 @@
 - [x] Tweets
 - [x] Search
 - [x] Exchange Detail
-- [ ] News
+- [x] News
