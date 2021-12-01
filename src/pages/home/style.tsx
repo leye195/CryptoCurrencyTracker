@@ -7,6 +7,7 @@ type DotType = {
 type NewsType = {
   position: number;
   currentDot: number;
+  currentWidth: number;
 };
 
 export const CoinsList = styled.ul`
@@ -57,6 +58,7 @@ export const NewsList = styled.div`
   white-space: nowrap;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
+  scroll-snap-type: x mandatory;
 
   &::-webkit-scrollbar {
     display: none;
@@ -68,7 +70,8 @@ export const NewsCard = styled.div<NewsType>`
   flex-direction: column;
   position: relative;
   flex-wrap: wrap;
-  min-width: 440px;
+  min-width: -webkit-fill-available;
+  width: 100%;
   height: 10rem;
   padding: 0.5rem;
   margin-right: 0.5rem;
@@ -76,8 +79,12 @@ export const NewsCard = styled.div<NewsType>`
   border-radius: 1rem;
   color: ${(props) => props.theme.black};
 
-  transform: ${(props) => `translateX(${props.currentDot * -448}px)`};
+  font-size: ${(props) => (props.currentWidth < 400 ? '0.8rem' : '1rem')};
+
+  transform: ${(props) =>
+    `translateX(${props.currentDot * -props.currentWidth}px)`};
   transition: transform 1s cubic-bezier(0.5, 0, 0.1, 1);
+  scroll-snap-align: center;
 
   & > a {
     height: inherit;
@@ -94,7 +101,7 @@ export const NewsCard = styled.div<NewsType>`
 
   & .news__title {
     white-space: pre-wrap;
-    width: 20rem;
+    max-width: 20rem;
     height: 1.5rem;
     max-width: 100%;
     margin: 0;

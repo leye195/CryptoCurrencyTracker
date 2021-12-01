@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowRight } from 'react-icons/md';
 import Common from 'components/common';
@@ -21,7 +22,9 @@ type Props = {
   isLoading: boolean;
   isFetched: boolean;
   currentDot: number;
+  currentWidth: number;
   handleDot: (index: number) => () => void;
+  newsRef: Ref<HTMLDivElement>;
 };
 
 export default function HomePresentation({
@@ -30,7 +33,9 @@ export default function HomePresentation({
   isLoading,
   isFetched,
   currentDot,
+  currentWidth,
   handleDot,
+  newsRef,
 }: Props) {
   return (
     <Common.Container>
@@ -43,12 +48,13 @@ export default function HomePresentation({
                 News <MdArrowRight />
               </Link>
             </h3>
-            <NewsList>
+            <NewsList ref={newsRef}>
               {news?.Data?.slice(0, 5).map((post, idx) => (
                 <NewsCard
                   key={post.id}
                   className="news"
                   currentDot={currentDot}
+                  currentWidth={currentWidth}
                   position={idx}
                 >
                   <a href={post.url}>
