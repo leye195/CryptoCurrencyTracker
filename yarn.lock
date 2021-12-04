@@ -1991,6 +1991,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-toggle@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/react-toggle/-/react-toggle-4.0.3.tgz#8db98ac8d2c5e8c03c2d3a42027555c1cd2289da"
+  integrity sha512-57QdMWeeQdRjM2/p+udgYerxUbSkmeUIW18kwUttcci6GHkgxoqCsDZfRtsCsAHcvvM5VBQdtDUEgLWo2e87mA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^17.0.0":
   version "17.0.34"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.34.tgz#797b66d359b692e3f19991b6b07e4b0c706c0102"
@@ -3559,6 +3566,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.5:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 clean-css@^4.2.3:
   version "4.2.4"
@@ -5732,6 +5744,11 @@ gzip-size@5.1.1:
   dependencies:
     duplexer "^0.1.1"
     pify "^4.0.1"
+
+hamt_plus@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hamt_plus/-/hamt_plus-1.0.2.tgz#e21c252968c7e33b20f6a1b094cd85787a265601"
+  integrity sha1-4hwlKWjH4zsg9qGwlM2FeHomVgE=
 
 handle-thing@^2.0.0:
   version "2.0.1"
@@ -9667,6 +9684,13 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.1.tgz#66c5701c3e7560ab4822a4ee2742dee215d72eb3"
   integrity sha512-2FoTQzRNTncBVtnzxFOk2mCpcfxQpenBMbk5kSVBg5UcPqV9fRbgY2zhb7GTWWOlpFmAxhClBDlIq8Rsubz1yQ==
 
+react-toggle@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/react-toggle/-/react-toggle-4.1.2.tgz#b00500832f925ad524356d909821821ae39f6c52"
+  integrity sha512-4Ohw31TuYQdhWfA6qlKafeXx3IOH7t4ZHhmRdwsm1fQREwOBGxJT+I22sgHqR/w8JRdk+AeMCJXPImEFSrNXow==
+  dependencies:
+    classnames "^2.2.5"
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
@@ -9731,6 +9755,13 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+recoil@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.5.2.tgz#61fecce3b4dc91127a595586cf7369e2811ba024"
+  integrity sha512-Edibzpu3dbUMLy6QRg73WL8dvMl9Xqhp+kU+f2sJtXxsaXvAlxU/GcnDE8HXPkprXrhHF2e6SZozptNvjNF5fw==
+  dependencies:
+    hamt_plus "1.0.2"
 
 recursive-readdir@2.2.2:
   version "2.2.2"
