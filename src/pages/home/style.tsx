@@ -16,9 +16,10 @@ export const CoinsList = styled.ul`
 
 export const Coin = styled.li`
   background-color: ${(props) => props.theme.white};
-  color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.black};
   margin-bottom: 1rem;
   border-radius: 1rem;
+
   & > a {
     display: flex;
     align-items: center;
@@ -78,9 +79,7 @@ export const NewsCard = styled.div<NewsType>`
   background-color: ${(props) => props.theme.white};
   border-radius: 1rem;
   color: ${(props) => props.theme.black};
-
   font-size: ${(props) => (props.currentWidth < 400 ? '0.8rem' : '1rem')};
-
   transform: ${(props) =>
     `translateX(${props.currentDot * -props.currentWidth}px)`};
   transition: transform 1s cubic-bezier(0.5, 0, 0.1, 1);

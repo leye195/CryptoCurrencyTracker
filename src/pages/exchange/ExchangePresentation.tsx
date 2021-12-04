@@ -2,7 +2,7 @@ import CoinTable from 'components/CoinTable';
 import Common from 'components/common';
 import ExchangeImg from 'components/ExchangeImg';
 import CoinStat from 'components/CoinStat';
-import { DescriptionWrapper, StatWrapper } from 'pages/coin/style';
+import { DescriptionWrapper, StatWrapper } from 'pages/exchange/style';
 import { ExchangeInfoType, MarketType } from 'types/exchange';
 import { numberFormat } from 'utils';
 import {

@@ -31,7 +31,7 @@ export const PriceWrapper = styled.div`
   & h5 {
     font-size: 1rem;
     margin-bottom: 0.8rem;
-    color: #f3f0f0;
+    color: ${(props) => props.theme.textColor};
   }
 
   & span {
@@ -47,10 +47,11 @@ export const StatWrapper = styled.div`
 
 export const DescriptionWrapper = styled.div`
   & > p {
-    background: ${(props) => props.theme.blueYonder};
     padding: 0.5rem;
     border-radius: 0.5rem;
     white-space: pre-line;
+    color: ${(props) => props.theme.cardTextColor};
+    background: ${(props) => props.theme.blueYonder};
   }
 `;
 

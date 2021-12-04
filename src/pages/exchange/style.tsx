@@ -28,7 +28,7 @@ export const VolumeWrapper = styled.div`
   & h5 {
     font-size: 1rem;
     margin-bottom: 0.8rem;
-    color: #f3f0f0;
+    color: ${(props) => props.theme.textColor};
   }
 
   & span {
@@ -38,10 +38,11 @@ export const VolumeWrapper = styled.div`
 `;
 
 export const DescriptionWrapper = styled.div`
-  & > p {
+  & p {
     padding: 0.5rem;
     border-radius: 0.5rem;
     background: ${(props) => props.theme.blueYonder};
+    color: ${(props) => props.theme.white};
     white-space: pre-line;
   }
 `;

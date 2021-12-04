@@ -12,6 +12,7 @@ const Container = styled(Common.Col)`
   width: 100%;
   border-radius: 0.5rem;
   background-color: ${(props) => props.theme.blueYonder};
+  color: ${(props) => props.theme.cardTextColor};
 
   & .tweet__img {
     display: flex;

@@ -5,6 +5,7 @@ import ChartButton from 'components/ChartButton';
 import { CoinOHLCType } from 'types/coin';
 
 type Props = {
+  isDark: boolean;
   isLoading: boolean;
   data?: CoinOHLCType[];
   handlePeriod: (period: string) => () => void;
@@ -35,6 +36,7 @@ const Container = styled.div`
 `;
 
 const ChartPresentation = ({
+  isDark,
   isLoading,
   data,
   handlePeriod,
@@ -91,7 +93,7 @@ const ChartPresentation = ({
         width="100%"
         options={{
           theme: {
-            mode: 'dark',
+            mode: isDark ? 'dark' : 'light',
           },
           chart: {
             id: 'chart1',

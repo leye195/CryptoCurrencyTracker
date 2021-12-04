@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isDarkState } from 'recoil/atoms';
 import { getCoinOHLC } from 'apis';
 import { CoinOHLCType, DetailParams } from 'types/coin';
 import PricePresentation from './PricePresentation';
 
 const PriceContainer = () => {
+  const isDark = useRecoilValue(isDarkState);
+
   const { coinId }: DetailParams = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [period, setPeriod] = useState('7d');
@@ -33,6 +37,7 @@ const PriceContainer = () => {
 
   return (
     <PricePresentation
+      isDark={isDark}
       data={data}
       isLoading={isLoading}
       handlePeriod={handlePeriod}

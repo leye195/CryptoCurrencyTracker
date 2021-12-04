@@ -17,10 +17,11 @@ const TableHeadItem = styled.th`
   padding: 0.8rem 0.8rem;
   border-bottom: 1px solid #aab1c56b;
   text-align: start;
+  background: #2c3e50;
+  color: ${(props) => props.theme.white};
 
   &:first-child {
     position: sticky;
-    background: #2c3e50;
     left: 0;
   }
 `;
@@ -29,10 +30,11 @@ const TableRowItem = styled.td<{ isLastRow: boolean }>`
   padding: 0.8rem 0.8rem;
   border-bottom: ${(props) =>
     props.isLastRow ? 'none' : '1px solid #aab1c56b'};
+  background: #2c3e50;
+  color: ${(props) => props.theme.white};
 
   &:first-child {
     position: sticky;
-    background: #2c3e50;
     left: 0;
   }
 

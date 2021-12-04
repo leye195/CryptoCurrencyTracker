@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { RecoilRoot } from 'recoil';
+
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { ThemeProvider } from 'styled-components';
-import theme from 'styles/theme';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,13 +12,13 @@ const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <Router>
           <App />
         </Router>
       </QueryClientProvider>
-    </ThemeProvider>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
 );
