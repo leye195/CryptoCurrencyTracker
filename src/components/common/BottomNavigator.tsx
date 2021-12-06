@@ -11,6 +11,7 @@ const Container = styled.div`
   width: 100%;
   background-color: #2c3e50;
   color: ${(props) => props.theme.white};
+  border-top: 0.5px solid white;
 
   & a {
     display: flex;
