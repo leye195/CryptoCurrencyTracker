@@ -71,7 +71,7 @@ const Header = ({ title = 'CryptoCapTracker', handleSearchOpen }: Props) => {
     <Container>
       <Common.Row full justifyContent="space-between" alignItems="center">
         <Common.Row alignItems="center">
-          {pathname !== '/' && (
+          {pathname !== '/' && pathname !== '/favorites' && (
             <Common.Button
               className="back-button"
               type="button"

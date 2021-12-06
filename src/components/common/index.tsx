@@ -10,6 +10,7 @@ import Loading from './Loading';
 import ButtonGroup from './ButtonGroup';
 import Button from './Button';
 import SEO from './SEO';
+import BottomNavigator from './BottomNavigator';
 
 export default {
   Img,
@@ -24,4 +25,5 @@ export default {
   ButtonGroup,
   Button,
   SEO,
+  BottomNavigator,
 };

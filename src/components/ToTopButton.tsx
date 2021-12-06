@@ -11,7 +11,7 @@ const Button = styled(Common.Button)`
   border-radius: 50%;
   background-color: white;
   position: fixed;
-  bottom: 3%;
+  bottom: 5%;
   right: 3%;
   color: rgb(88, 102, 126);
   box-shadow: 0px 0px 3px 0px #000000cc;
