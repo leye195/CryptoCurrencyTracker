@@ -10,12 +10,14 @@ import Market from 'pages/coin/market';
 import Tweets from 'pages/tweets';
 import Exchange from 'pages/exchange';
 import News from 'pages/news';
+import Favorites from 'pages/favorites';
 
 const Router = () => {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/:coinId" element={<Detail />}>
           <Route path="/:coinId/price" element={<Price />} />
           <Route path="/:coinId/chart" element={<Chart />} />
