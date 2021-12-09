@@ -9,6 +9,8 @@ const commonColors = {
   black: '#000000',
   green: '#16c784',
   red: '#ea3943',
+  orange: '#f7ce63',
+  yellow: '#ffe650',
   cardTextColor: '#ecf0f1',
 };
 
