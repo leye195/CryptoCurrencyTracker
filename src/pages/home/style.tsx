@@ -15,6 +15,9 @@ export const CoinsList = styled.ul`
 `;
 
 export const Coin = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: ${(props) => props.theme.white};
   color: ${(props) => props.theme.black};
   margin-bottom: 1rem;
@@ -36,6 +39,15 @@ export const Coin = styled.li`
   &:hover {
     a {
       color: ${(props) => props.theme.accentColor};
+    }
+  }
+
+  & .favorite {
+    margin-right: 1rem;
+
+    & svg {
+      color: ${(props) => props.theme.yellow};
+      font-size: 1.25rem;
     }
   }
 `;

@@ -1,9 +1,9 @@
 import { Ref } from 'react';
 import { Link } from 'react-router-dom';
-import { MdArrowRight } from 'react-icons/md';
+import { MdArrowRight, MdStarBorder, MdStar } from 'react-icons/md';
 import Common from 'components/common';
 import Loading from 'components/common/Loading';
-import { capitalize, summarizeTags } from 'utils';
+import { capitalize, checkIsFavorite, summarizeTags } from 'utils';
 
 import { CoinType } from 'types/coin';
 import { NewsType } from 'types/news';
@@ -24,6 +24,7 @@ type Props = {
   currentDot: number;
   currentWidth: number;
   handleDot: (index: number) => () => void;
+  handleFavorite: (coin: CoinType) => () => void;
   newsRef: Ref<HTMLDivElement>;
 };
 
@@ -35,6 +36,7 @@ export default function HomePresentation({
   currentDot,
   currentWidth,
   handleDot,
+  handleFavorite,
   newsRef,
 }: Props) {
   return (
@@ -96,6 +98,13 @@ export default function HomePresentation({
                 />
                 {coin.name} &rarr;
               </Link>
+              <Common.Button
+                className="favorite"
+                type="button"
+                onClick={handleFavorite(coin)}
+              >
+                {checkIsFavorite(coin.id) ? <MdStar /> : <MdStarBorder />}
+              </Common.Button>
             </Coin>
           ))}
       </CoinsList>

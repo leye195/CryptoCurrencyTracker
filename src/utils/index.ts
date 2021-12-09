@@ -1,3 +1,5 @@
+import { CoinType } from 'types/coin';
+
 export const numberFormat = (value: number, isPrice: boolean) => {
   const options = isPrice ? { style: 'currency', currency: 'USD' } : {};
   return new Intl.NumberFormat('en-US', options).format(value);
@@ -24,4 +26,17 @@ export const capitalize = (word: string) => {
 
 export const summarizeTags = (tags: string) => {
   return tags.split('|').slice(0, 3).join(' | ');
+};
+
+export const getLocalStorage = (key: string) => {
+  const data = localStorage.getItem(key);
+  return data;
+};
+
+export const checkIsFavorite = (id: string) => {
+  const data = JSON.parse(getLocalStorage('favorites') || '[]').filter(
+    (item: CoinType) => item.id === id,
+  );
+
+  return data.length > 0;
 };
