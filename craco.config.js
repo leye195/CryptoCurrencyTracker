@@ -3,13 +3,13 @@ module.exports = {
     configure: {
       optimization: {
         splitChunks: {
-          chunks: "all",
+          chunks: 'all',
           name: false,
           cacheGroups: {
             defaultVendors: {
               test: /[\\/]node_modules[\\/]/,
-              name: "vendors",
-              chunks: "all",
+              name: 'vendors',
+              chunks: 'all',
               enforce: true,
             },
           },

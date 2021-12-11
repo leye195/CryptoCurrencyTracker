@@ -1,16 +1,34 @@
 import { Routes, Route } from 'react-router';
-
+import loadable from '@loadable/component';
 import Layout from 'components/layout/Layout';
 
-import Home from 'pages/home';
-import Detail from 'pages/coin';
-import Price from 'pages/coin/price';
-import Chart from 'pages/coin/chart';
-import Market from 'pages/coin/market';
-import Tweets from 'pages/tweets';
-import Exchange from 'pages/exchange';
-import News from 'pages/news';
-import Favorites from 'pages/favorites';
+const Home = loadable(
+  () => import(/* webpackChunkName: "Home" */ 'pages/home'),
+);
+const Detail = loadable(
+  () => import(/* webpackChunkName: "Detail" */ 'pages/coin'),
+);
+const Price = loadable(
+  () => import(/* webpackChunkName: "Price" */ 'pages/coin/price'),
+);
+const Chart = loadable(
+  () => import(/* webpackChunkName: "Chart" */ 'pages/coin/chart'),
+);
+const Market = loadable(
+  () => import(/* webpackChunkName: "Market" */ 'pages/coin/market'),
+);
+const Tweets = loadable(
+  () => import(/* webpackChunkName: "Tweets" */ 'pages/tweets'),
+);
+const Exchange = loadable(
+  () => import(/* webpackChunkName: "Exchange" */ 'pages/exchange'),
+);
+const News = loadable(
+  () => import(/* webpackChunkName: "News" */ 'pages/news'),
+);
+const Favorites = loadable(
+  () => import(/* webpackChunkName: "Favorites" */ 'pages/favorites'),
+);
 
 const Router = () => {
   return (
