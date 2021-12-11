@@ -11,7 +11,7 @@ type NewsType = {
 };
 
 export const CoinsList = styled.ul`
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 `;
 
 export const Coin = styled.li`
