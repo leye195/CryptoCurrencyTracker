@@ -22,3 +22,31 @@
 - [x] Search
 - [x] Exchange Detail
 - [x] News
+
+## Get Started
+
+### install dependencies
+
+```bash
+yarn install
+# or yarn
+```
+
+### start
+
+```
+yarn start
+```
+
+### build
+
+```bash
+yarn build
+```
+
+### run build
+
+```bash
+# yarn global add serve
+serve -s build
+```
