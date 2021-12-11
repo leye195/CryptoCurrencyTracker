@@ -19,7 +19,7 @@ const Layout: React.FC = ({ children }) => {
         <Common.Header handleSearchOpen={handleSearchOpen} />
         {children}
         {(pathname === '/' || pathname === '/favorites') && (
-          <Common.BottomNavigator />
+          <Common.BottomNavigation />
         )}
       </div>
       <ToTopButton />

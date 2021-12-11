@@ -30,7 +30,7 @@ const Container = styled.div`
 
     &.active .indicator {
       border-radius: 50%;
-      background-color: #3673ff;
+      background-color: ${(props) => props.theme.blue};
       transform: translateY(-25px);
     }
 
@@ -53,7 +53,7 @@ const Container = styled.div`
   }
 `;
 
-const BottomNavigator = () => {
+const BottomNavigation = () => {
   return (
     <Container>
       <NavLink
@@ -90,4 +90,4 @@ const BottomNavigator = () => {
   );
 };
 
-export default BottomNavigator;
+export default BottomNavigation;
