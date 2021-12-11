@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Skeleton from 'components/common/Skeleton';
 
 type DotType = {
   active?: boolean;
@@ -12,6 +13,11 @@ type NewsType = {
 
 export const CoinsList = styled.ul`
   padding-bottom: 5rem;
+`;
+
+export const CoinSkeleton = styled(Skeleton)`
+  height: 4rem;
+  margin-bottom: 1rem;
 `;
 
 export const Coin = styled.li`
@@ -76,6 +82,11 @@ export const NewsList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+`;
+
+export const NewsListSkeleton = styled(Skeleton)`
+  height: 144px;
+  margin-bottom: 2rem;
 `;
 
 export const NewsCard = styled.div<NewsType>`

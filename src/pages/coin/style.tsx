@@ -1,4 +1,36 @@
 import styled from 'styled-components';
+import Skeleton from 'components/common/Skeleton';
+
+export const TitleSkeleton = styled(Skeleton)`
+  height: 52px;
+  margin: 1rem 0 1.5rem 0;
+`;
+
+export const TagSkeleton = styled(Skeleton)`
+  height: 2rem;
+  margin-bottom: 2rem;
+`;
+
+export const SubTitleSkeleton = styled(Skeleton)`
+  height: 1.5rem;
+  width: 10rem;
+  margin-bottom: 12.5px;
+`;
+
+export const PriceSkeleton = styled(Skeleton)`
+  height: 38px;
+  margin-bottom: 1rem;
+`;
+
+export const DescriptionSkeleton = styled(Skeleton)`
+  height: 5rem;
+  margin-bottom: 1rem;
+`;
+
+export const StatSkeleton = styled(Skeleton)`
+  height: 56px;
+  margin-bottom: 0.5rem;
+`;
 
 export const TitleWrapper = styled.div`
   display: flex;
@@ -26,6 +58,7 @@ export const TagsWrapper = styled.div`
 `;
 
 export const PriceWrapper = styled.div`
+  width: 100%;
   margin-top: 0.5rem;
 
   & h5 {
@@ -46,6 +79,8 @@ export const StatWrapper = styled.div`
 `;
 
 export const DescriptionWrapper = styled.div`
+  width: 100%;
+
   & > p {
     padding: 0.5rem;
     border-radius: 0.5rem;

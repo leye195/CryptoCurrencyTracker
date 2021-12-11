@@ -2,18 +2,19 @@ import { Ref } from 'react';
 import { Link } from 'react-router-dom';
 import { MdArrowRight, MdStarBorder, MdStar } from 'react-icons/md';
 import Common from 'components/common';
-import Loading from 'components/common/Loading';
 import { capitalize, checkIsFavorite, summarizeTags } from 'utils';
 
 import { CoinType } from 'types/coin';
 import { NewsType } from 'types/news';
 import {
   Coin,
+  CoinSkeleton,
   CoinsList,
   Dot,
   NewsCard,
   NewsContainer,
   NewsList,
+  NewsListSkeleton,
 } from './style';
 
 type Props = {
@@ -43,13 +44,14 @@ export default function HomePresentation({
     <Common.Container>
       <Common.SEO />
       <NewsContainer>
-        {isFetched && (
+        <h3>
+          <Link to="/news">
+            News <MdArrowRight />
+          </Link>
+        </h3>
+        {isLoading && <NewsListSkeleton />}
+        {isFetched && !isLoading && (
           <>
-            <h3>
-              <Link to="/news">
-                News <MdArrowRight />
-              </Link>
-            </h3>
             <NewsList ref={newsRef}>
               {news?.Data?.slice(0, 5).map((post, idx) => (
                 <NewsCard
@@ -70,6 +72,7 @@ export default function HomePresentation({
                 </NewsCard>
               ))}
             </NewsList>
+
             <Common.Row full justifyContent="center" alignItems="space-between">
               {news?.Data?.slice(0, 5).map((_, idx) => (
                 <Dot
@@ -84,7 +87,15 @@ export default function HomePresentation({
       </NewsContainer>
       <CoinsList>
         <h3>Coins</h3>
-        {isLoading && <Loading />}
+        {isLoading && (
+          <>
+            <CoinSkeleton />
+            <CoinSkeleton />
+            <CoinSkeleton />
+            <CoinSkeleton />
+            <CoinSkeleton />
+          </>
+        )}
         {isFetched &&
           coins?.slice(0, 100)?.map((coin) => (
             <Coin key={coin.id}>
