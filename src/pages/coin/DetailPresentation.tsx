@@ -50,7 +50,7 @@ export default function DetailPresentation({
       <Common.Col>
         <Common.Row full justifyContent="center">
           {isLoading && <TitleSkeleton />}
-          {isFetched && (
+          {!isLoading && isFetched && (
             <TitleWrapper>
               <CoinImg symbol={coinInfo?.symbol as string} />
               <p>{name || coinInfo?.name}</p>
@@ -61,7 +61,7 @@ export default function DetailPresentation({
           )}
         </Common.Row>
         {isLoading && <TagSkeleton />}
-        {isFetched && (
+        {!isLoading && isFetched && (
           <TagsWrapper>
             <Common.Row justifyContent="center">
               <Common.Tag>
@@ -83,7 +83,7 @@ export default function DetailPresentation({
               <PriceSkeleton />
             </>
           )}
-          {isFetched && (
+          {!isLoading && isFetched && (
             <>
               <h5>{coinInfo?.name} Price</h5>
               <span>${coinPrice?.quotes.USD.price.toFixed(2)}</span>
@@ -91,7 +91,7 @@ export default function DetailPresentation({
           )}
         </PriceWrapper>
         <DescriptionWrapper>
-          {isFetched && coinInfo?.description && (
+          {!isLoading && isFetched && coinInfo?.description && (
             <>
               <h3>Description</h3>
               <p>{coinInfo?.description}</p>
@@ -115,7 +115,7 @@ export default function DetailPresentation({
               <StatSkeleton />
             </>
           )}
-          {isFetched && (
+          {!isLoading && isFetched && (
             <>
               <CoinStat
                 statName="Market Cap"

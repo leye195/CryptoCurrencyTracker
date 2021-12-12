@@ -96,7 +96,8 @@ export default function HomePresentation({
             <CoinSkeleton />
           </>
         )}
-        {isFetched &&
+        {!isLoading &&
+          isFetched &&
           coins?.slice(0, 100)?.map((coin) => (
             <Coin key={coin.id}>
               <Link
