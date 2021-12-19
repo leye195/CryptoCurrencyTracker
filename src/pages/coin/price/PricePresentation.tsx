@@ -86,48 +86,50 @@ const PricePresentation = ({
         </Common.Row>
       )}
 
-      <ReactApex
-        type="candlestick"
-        height={300}
-        width="100%"
-        options={{
-          theme: {
-            mode: isDark ? 'dark' : 'light',
-          },
-          chart: {
-            id: 'chart',
-            group: 'price',
-            height: 300,
-            toolbar: {
-              autoSelected: 'pan',
-              show: false,
+      {!isLoading && (
+        <ReactApex
+          type="candlestick"
+          height={300}
+          width="100%"
+          options={{
+            theme: {
+              mode: isDark ? 'dark' : 'light',
             },
-            background: 'transparent',
-          },
-          xaxis: {
-            type: 'datetime',
-            categories: data?.map((price) =>
-              new Date(price.time_close).getTime(),
-            ),
-          },
-          yaxis: {
-            labels: {
-              formatter: (value) => `$${value.toFixed(2)}`,
+            chart: {
+              id: 'chart',
+              group: 'price',
+              height: 300,
+              toolbar: {
+                autoSelected: 'pan',
+                show: false,
+              },
+              background: 'transparent',
             },
-          },
-        }}
-        series={[
-          {
-            data: data?.map((price) => [
-              new Date(price.time_close).getTime(),
-              price.open.toFixed(2),
-              price.high.toFixed(2),
-              price.low.toFixed(2),
-              price.close.toFixed(2),
-            ]),
-          },
-        ]}
-      />
+            xaxis: {
+              type: 'datetime',
+              categories: data?.map((price) =>
+                new Date(price.time_close).getTime(),
+              ),
+            },
+            yaxis: {
+              labels: {
+                formatter: (value) => `$${value.toFixed(2)}`,
+              },
+            },
+          }}
+          series={[
+            {
+              data: data?.map((price) => [
+                new Date(price.time_close).getTime(),
+                price.open.toFixed(2),
+                price.high.toFixed(2),
+                price.low.toFixed(2),
+                price.close.toFixed(2),
+              ]),
+            },
+          ]}
+        />
+      )}
     </Container>
   );
 };

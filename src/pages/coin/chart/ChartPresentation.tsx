@@ -87,55 +87,57 @@ const ChartPresentation = ({
         </Common.Row>
       )}
 
-      <ReactApex
-        type="line"
-        height={300}
-        width="100%"
-        options={{
-          theme: {
-            mode: isDark ? 'dark' : 'light',
-          },
-          chart: {
-            id: 'chart1',
-            group: 'price',
-            height: 300,
-            toolbar: {
-              autoSelected: 'pan',
-              show: false,
+      {!isLoading && (
+        <ReactApex
+          type="line"
+          height={300}
+          width="100%"
+          options={{
+            theme: {
+              mode: isDark ? 'dark' : 'light',
             },
-            background: 'transparent',
-          },
-          stroke: {
-            curve: 'smooth',
-            width: 3.5,
-          },
-          colors: ['#008FFB'],
-          xaxis: {
-            type: 'datetime',
-            categories: data?.map((price) => price.time_close),
-          },
-          yaxis: {
-            labels: {
-              formatter: (value) => `$${value.toFixed(2)}`,
+            chart: {
+              id: 'chart1',
+              group: 'price',
+              height: 300,
+              toolbar: {
+                autoSelected: 'pan',
+                show: false,
+              },
+              background: 'transparent',
             },
-          },
-          tooltip: {
-            enabled: true,
-            y: {
-              formatter: undefined,
-              title: {
-                formatter: (seriesName) => seriesName,
+            stroke: {
+              curve: 'smooth',
+              width: 3.5,
+            },
+            colors: ['#008FFB'],
+            xaxis: {
+              type: 'datetime',
+              categories: data?.map((price) => price.time_close),
+            },
+            yaxis: {
+              labels: {
+                formatter: (value) => `$${value.toFixed(2)}`,
               },
             },
-          },
-        }}
-        series={[
-          {
-            name: 'Price:',
-            data: data?.map((price) => price.close.toFixed(2)),
-          },
-        ]}
-      />
+            tooltip: {
+              enabled: true,
+              y: {
+                formatter: undefined,
+                title: {
+                  formatter: (seriesName) => seriesName,
+                },
+              },
+            },
+          }}
+          series={[
+            {
+              name: 'Price:',
+              data: data?.map((price) => price.close.toFixed(2)),
+            },
+          ]}
+        />
+      )}
     </Container>
   );
 };
