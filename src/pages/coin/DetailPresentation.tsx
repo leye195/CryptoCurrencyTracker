@@ -25,7 +25,6 @@ import {
 } from './style';
 
 type Props = {
-  name: string;
   isLoading: boolean;
   isFetched: boolean;
   coinInfo?: CoinInfoType;
@@ -34,7 +33,6 @@ type Props = {
 };
 
 export default function DetailPresentation({
-  name = '',
   isLoading = true,
   isFetched = false,
   coinInfo,
@@ -44,7 +42,7 @@ export default function DetailPresentation({
   return (
     <Common.Container>
       <Common.SEO
-        title={`CryptoCapTracker | ${name || coinInfo?.name}`}
+        title={`CryptoCapTracker | ${coinInfo?.name}`}
         description={coinInfo?.description}
       />
       <Common.Col>
@@ -53,7 +51,7 @@ export default function DetailPresentation({
           {!isLoading && isFetched && (
             <TitleWrapper>
               <CoinImg symbol={coinInfo?.symbol as string} />
-              <p>{name || coinInfo?.name}</p>
+              <p>{coinInfo?.name}</p>
               <Common.Tag>
                 <p>{coinInfo?.symbol}</p>
               </Common.Tag>

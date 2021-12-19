@@ -7,7 +7,8 @@ import DetailPresentation from './DetailPresentation';
 
 export default function DetailContainer() {
   const { coinId }: DetailParams = useParams();
-  const { state, pathname } = useLocation();
+  const { pathname } = useLocation();
+
   const navigator = useNavigate();
 
   const {
@@ -55,7 +56,6 @@ export default function DetailContainer() {
 
   return (
     <DetailPresentation
-      name={state?.name}
       isFetched={isCoinInfoFetched && isCoinPriceFetched && isTweetFetched}
       isLoading={isCoinInfoLoading || isCoinPriceLoading || isTweetLoading}
       coinInfo={coinInfo}
